@@ -7,3 +7,5 @@
 	excludesFile = /home/craig/.gitignore
 [commit]
 	gpgsign = true
+[init]
+	defaultBranch = main
