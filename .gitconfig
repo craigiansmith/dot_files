@@ -1,0 +1,9 @@
+[user]
+	email = craig@myfuturesuper.com.au
+	name = Craig Smith
+	signingkey = 3B22E9FC6BC0152880F9CF3D3B9C4C0478868555
+[core]
+	editor = vim
+	excludesFile = /home/craig/.gitignore
+[commit]
+	gpgsign = true
