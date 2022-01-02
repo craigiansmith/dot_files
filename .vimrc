@@ -23,6 +23,12 @@ set incsearch
 
 nmap <Leader>ev :tabe ~/.vimrc<cr>
 nmap <Leader><space> :nohlsearch<cr>
+nmap <Leader>tj :!npm run test:unit<cr>
+nnoremap <C-p> :<C-u>FZF<CR>
+nnoremap <Leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 
 "--------Autocommands---
 

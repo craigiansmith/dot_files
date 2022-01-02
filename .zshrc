@@ -99,16 +99,17 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export VISUAL=nvim
+export VIMCONFIG=~/.config/nvim
+export VIMDATA=~/.local/share/nvim
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="$PATH:/home/craig/Documents/Prophecy/infrastructure/Docker/Devops-Tools"
 export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:$VIMCONFIG/pack/bundle/start/fzf/bin"
 cd $HOME/Documents/Prophecy;
 bindkey -v
-export VISUAL=nvim
-export VIMCONFIG=~/.config/nvim
-export VIMDATA=~/.local/share/nvim
 alias vi='nvim'
 alias vim='nvim'
