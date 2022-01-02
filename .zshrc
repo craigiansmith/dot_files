@@ -113,3 +113,6 @@ cd $HOME/Documents/Prophecy;
 bindkey -v
 alias vi='nvim'
 alias vim='nvim'
+if type rg &> /dev/null; then
+	export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/'"
+fi
