@@ -120,3 +120,8 @@ if type rg &> /dev/null; then
 fi
 pactl load-module module-null-sink sink_name=zoom_input sink_properties=device.description=zoom_input
 pactl load-module module-remap-source master=zoom_input.monitor source_name=zoom_mic source_properties=device.description="zoom_mic"
+alias tn='npm run test:unit'
+tp() {
+    DIR=$(basename $(pwd))
+    docker exec -it $DIR vendor/bin/phpunit --stop-on-failure
+}
