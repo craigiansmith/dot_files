@@ -108,11 +108,15 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="$PATH:/home/craig/Documents/Prophecy/infrastructure/Docker/Devops-Tools"
 export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:/home/craig/go/bin"
 export PATH="$PATH:$VIMCONFIG/pack/bundle/start/fzf/bin"
 cd $HOME/Documents/Prophecy;
 bindkey -v
 alias vi='nvim'
 alias vim='nvim'
+alias lg='lazygit'
 if type rg &> /dev/null; then
 	export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/'"
 fi
+pactl load-module module-null-sink sink_name=zoom_input sink_properties=device.description=zoom_input
+pactl load-module module-remap-source master=zoom_input.monitor source_name=zoom_mic source_properties=device.description="zoom_mic"
