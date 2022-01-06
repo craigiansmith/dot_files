@@ -2,6 +2,9 @@ syntax enable
 
 colorscheme atom-dark-256
 
+let path = finddir('.git/..')
+let dir = split(path, '/')[-1]
+
 set backspace=indent,eol,start
 set rnu
 set number
@@ -26,7 +29,8 @@ let g:ale_php_phpcs_executable = '/home/craig/Documents/Prophecy/fund-api/run-ph
 nmap <Leader>tpf :!docker exec -t fund-api vendor/bin/phpunit<CR>
 nmap <Leader>tpi :!docker exec -t integration vendor/bin/phpunit<CR>
 
-let test#php#phpunit#executable = 'docker exec -t fund-api vendor/bin/phpunit'
+" Make vim-test run our phpunit tests in docker
+let test#php#phpunit#executable = 'docker exec -t '. dir . ' vendor/bin/phpunit'
 
 "--------Searching------
 
