@@ -25,12 +25,15 @@ let g:ale_linters = {
 let g:ale_php_phpcs_executable = '/home/craig/Documents/Prophecy/fund-api/run-phpcs-in-docker.sh'
 
 "--------Testing--------
-"let test#strategy = 'dispatch'
+let test#strategy = 'basic'
 nmap <Leader>tpf :!docker exec -t fund-api vendor/bin/phpunit<CR>
 nmap <Leader>tpi :!docker exec -t integration vendor/bin/phpunit<CR>
 
 " Make vim-test run our phpunit tests in docker
 let test#php#phpunit#executable = 'docker exec -t '. dir . ' vendor/bin/phpunit'
+
+" Make phpunit stop on first failed or errored test
+let test#php#phpunit#options = '--stop-on-failure'
 
 "--------Searching------
 
