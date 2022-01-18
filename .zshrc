@@ -110,6 +110,7 @@ export PATH="$PATH:/home/craig/Documents/Prophecy/infrastructure/Docker/Devops-T
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/home/craig/go/bin"
 export PATH="$PATH:$VIMCONFIG/pack/bundle/start/fzf/bin"
+export PATH="$PATH:/opt/DataGrip-2021.3.3/bin"
 cd $HOME/Documents/Prophecy;
 bindkey -v
 alias vi='nvim'

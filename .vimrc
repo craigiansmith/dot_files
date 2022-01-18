@@ -14,6 +14,9 @@ let mapleader = ','
 set splitbelow
 set splitright
 
+set tabstop=4 softtabstop=-1 shiftwidth=4 smarttab
+
+set expandtab
 
 "--------Visuals--------
 
