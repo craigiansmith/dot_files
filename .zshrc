@@ -1,8 +1,29 @@
+#! /bin/bash
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/craig/.oh-my-zsh"
+
+is_zoom_inputs_set() {
+    while IFS= read -r line; do
+        if [[ "$line" == "ZOOM_INPUT_SET" ]]; then
+            return true;
+        else
+            return false;
+        fi
+    done < ~/.tmux.variables
+}
+
+set_zoom_input() {
+    echo "ZOOM_INPUT_SET" >> ~/.tmux.variables
+    return
+}
+
+clear_tmux_variables() {
+    rm ~/.tmux.variables
+    return
+}
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -119,8 +140,14 @@ alias lg='lazygit'
 if type rg &> /dev/null; then
 	export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/'"
 fi
-pactl load-module module-null-sink sink_name=zoom_input sink_properties=device.description=zoom_input
-pactl load-module module-remap-source master=zoom_input.monitor source_name=zoom_mic source_properties=device.description="zoom_mic"
+is_zoom_inputs_set
+ZOOM_INPUTS_SET=$?
+if [[ -z "${ZOOM_INPUTS_SET}" ]]; then
+    pactl load-module module-null-sink sink_name=zoom_input sink_properties=device.description=zoom_input
+    pactl load-module module-remap-source master=zoom_input.monitor source_name=zoom_mic source_properties=device.description="zoom_mic"
+    set_zoom_input
+fi
+
 alias tn='npm run test:unit'
 tp() {
     DIR=$(basename $(pwd))
